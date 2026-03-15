@@ -48,6 +48,10 @@ public class PostFilter implements Parcelable {
     public String postTitleExcludesStrings;
     @ColumnInfo(name = "post_title_contains_strings")
     public String postTitleContainsStrings;
+    @ColumnInfo(name = "subreddit_name_excludes_regex")
+    public String subredditNameExcludesRegex;
+    @ColumnInfo(name = "subreddit_name_contains_regex")
+    public String subredditNameContainsRegex;
     @ColumnInfo(name = "exclude_subreddits")
     public String excludeSubreddits;
     @ColumnInfo(name = "contain_subreddits")
@@ -96,6 +100,8 @@ public class PostFilter implements Parcelable {
         postTitleContainsRegex = in.readString();
         postTitleExcludesStrings = in.readString();
         postTitleContainsStrings = in.readString();
+        subredditNameExcludesRegex = in.readString();
+        subredditNameContainsRegex = in.readString();
         excludeSubreddits = in.readString();
         containSubreddits = in.readString();
         excludeUsers = in.readString();
@@ -213,6 +219,24 @@ public class PostFilter implements Parcelable {
             if (!hasRequiredString) {
                 return false;
             }
+        }
+        if (postFilter.subredditNameExcludesRegex != null && !postFilter.subredditNameExcludesRegex.equals("")) {
+            try {
+                Pattern pattern = Pattern.compile(postFilter.subredditNameExcludesRegex);
+                Matcher matcher = pattern.matcher(post.getSubredditName());
+                if (matcher.find()) {
+                    return false;
+                }
+            } catch (PatternSyntaxException ignore) {}
+        }
+        if (postFilter.subredditNameContainsRegex != null && !postFilter.subredditNameContainsRegex.equals("")) {
+            try {
+                Pattern pattern = Pattern.compile(postFilter.subredditNameContainsRegex);
+                Matcher matcher = pattern.matcher(post.getSubredditName());
+                if (!matcher.find()) {
+                    return false;
+                }
+            } catch (PatternSyntaxException ignore) {}
         }
         if (postFilter.excludeSubreddits != null && !postFilter.excludeSubreddits.equals("")) {
             String[] subreddits = postFilter.excludeSubreddits.split(",", 0);
@@ -337,6 +361,14 @@ public class PostFilter implements Parcelable {
                 postFilter.postTitleContainsRegex = p.postTitleContainsRegex;
             }
 
+            if (p.subredditNameExcludesRegex != null && !p.subredditNameExcludesRegex.equals("")) {
+                postFilter.subredditNameExcludesRegex = p.subredditNameExcludesRegex;
+            }
+
+            if (p.subredditNameContainsRegex != null && !p.subredditNameContainsRegex.equals("")) {
+                postFilter.subredditNameContainsRegex = p.subredditNameContainsRegex;
+            }
+
             if (p.postTitleExcludesStrings != null && !p.postTitleExcludesStrings.equals("")) {
                 stringBuilder = new StringBuilder(postFilter.postTitleExcludesStrings == null ? "" : postFilter.postTitleExcludesStrings);
                 stringBuilder.append(",").append(p.postTitleExcludesStrings);
@@ -429,6 +461,8 @@ public class PostFilter implements Parcelable {
         parcel.writeString(postTitleContainsRegex);
         parcel.writeString(postTitleExcludesStrings);
         parcel.writeString(postTitleContainsStrings);
+        parcel.writeString(subredditNameExcludesRegex);
+        parcel.writeString(subredditNameContainsRegex);
         parcel.writeString(excludeSubreddits);
         parcel.writeString(containSubreddits);
         parcel.writeString(excludeUsers);

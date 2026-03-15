@@ -1170,6 +1170,8 @@
     <string name="title_contains_regex_hint">Title: contains regex</string>
     <string name="exclude_subreddits_hint">Exclude subreddits (e.g. funny,AskReddit)</string>
     <string name="contain_subreddits_hint">Contain subreddits (e.g. funny,AskReddit)</string>
+    <string name="subreddit_name_excludes_regex_hint">Subreddit name: excludes regex</string>
+    <string name="subreddit_name_contains_regex_hint">Subreddit name: contains regex</string>
     <string name="exclude_users_hint">Exclude users (e.g. Hostilenemy,random)</string>
     <string name="contain_users_hint">Contain users (e.g. Hostilenemy,random)</string>
     <string name="exclude_flairs_hint">Exclude flairs (e.g. flair1,flair2)</string>
@@ -1212,6 +1214,8 @@
     <string name="post_filter_title_contains_regex_explanation">Posts will be filtered out if their title does not match the following regular expression.</string>
     <string name="post_filter_exclude_subreddits_explanation">Posts from the following subreddits will be filtered out.</string>
     <string name="post_filter_contain_subreddits_explanation">Posts will be filtered out if they are not from the following subreddits.</string>
+    <string name="post_filter_subreddit_name_excludes_regex_explanation">Posts will be filtered out if their subreddit name matches the following regular expression.</string>
+    <string name="post_filter_subreddit_name_contains_regex_explanation">Posts will be filtered out if their subreddit name does not match the following regular expression.</string>
     <string name="post_filter_exclude_users_explanation">Posts submitted by the following users will be filtered out.</string>
     <string name="post_filter_contain_users_explanation">Posts will be filtered out if they are not from the following users.</string>
     <string name="post_filter_exclude_flairs_explanation">Posts that have the following flairs will be filtered out.</string>
