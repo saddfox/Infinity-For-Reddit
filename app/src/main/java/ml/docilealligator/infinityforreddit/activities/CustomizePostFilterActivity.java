@@ -225,6 +225,8 @@ public class CustomizePostFilterActivity extends BaseActivity {
         binding.titleContainsStringsTextInputEditTextCustomizePostFilterActivity.setText(postFilter.postTitleContainsStrings);
         binding.titleExcludesRegexTextInputEditTextCustomizePostFilterActivity.setText(postFilter.postTitleExcludesRegex);
         binding.titleContainsRegexTextInputEditTextCustomizePostFilterActivity.setText(postFilter.postTitleContainsRegex);
+        binding.subredditNameExcludesRegexTextInputEditTextCustomizePostFilterActivity.setText(postFilter.subredditNameExcludesRegex);
+        binding.subredditNameContainsRegexTextInputEditTextCustomizePostFilterActivity.setText(postFilter.subredditNameContainsRegex);
         binding.excludesSubredditsTextInputEditTextCustomizePostFilterActivity.setText(postFilter.excludeSubreddits);
         binding.containsSubredditsTextInputEditTextCustomizePostFilterActivity.setText(postFilter.containSubreddits);
         binding.excludesUsersTextInputEditTextCustomizePostFilterActivity.setText(postFilter.excludeUsers);
@@ -373,6 +375,17 @@ public class CustomizePostFilterActivity extends BaseActivity {
         binding.titleContainsRegexTextInputLayoutCustomizePostFilterActivity.setDefaultHintTextColor(ColorStateList.valueOf(primaryTextColor));
         binding.titleContainsRegexTextInputEditTextCustomizePostFilterActivity.setTextColor(primaryTextColor);
 
+        binding.subredditNameRegexCardViewCustomizePostFilterActivity.setCardBackgroundColor(filledCardViewBackgroundColor);
+        binding.subredditNameExcludesRegexExplanationTextViewCustomizePostFilterActivity.setTextColor(primaryTextColor);
+        binding.subredditNameExcludesRegexTextInputLayoutCustomizePostFilterActivity.setBoxStrokeColor(primaryTextColor);
+        binding.subredditNameExcludesRegexTextInputLayoutCustomizePostFilterActivity.setDefaultHintTextColor(ColorStateList.valueOf(primaryTextColor));
+        binding.subredditNameExcludesRegexTextInputEditTextCustomizePostFilterActivity.setTextColor(primaryTextColor);
+
+        binding.subredditNameContainsRegexExplanationTextViewCustomizePostFilterActivity.setTextColor(primaryTextColor);
+        binding.subredditNameContainsRegexTextInputLayoutCustomizePostFilterActivity.setBoxStrokeColor(primaryTextColor);
+        binding.subredditNameContainsRegexTextInputLayoutCustomizePostFilterActivity.setDefaultHintTextColor(ColorStateList.valueOf(primaryTextColor));
+        binding.subredditNameContainsRegexTextInputEditTextCustomizePostFilterActivity.setTextColor(primaryTextColor);
+
         binding.subredditsCardViewCustomizePostFilterActivity.setCardBackgroundColor(filledCardViewBackgroundColor);
         binding.excludeSubredditsExplanationTextViewCustomizePostFilterActivity.setTextColor(primaryTextColor);
         binding.excludesSubredditsTextInputLayoutCustomizePostFilterActivity.setBoxStrokeColor(primaryTextColor);
@@ -449,6 +462,8 @@ public class CustomizePostFilterActivity extends BaseActivity {
             binding.titleContainsStringsTextInputLayoutCustomizePostFilterActivity.setCursorColor(ColorStateList.valueOf(primaryTextColor));
             binding.titleExcludesRegexTextInputLayoutCustomizePostFilterActivity.setCursorColor(ColorStateList.valueOf(primaryTextColor));
             binding.titleContainsRegexTextInputLayoutCustomizePostFilterActivity.setCursorColor(ColorStateList.valueOf(primaryTextColor));
+            binding.subredditNameExcludesRegexTextInputLayoutCustomizePostFilterActivity.setCursorColor(ColorStateList.valueOf(primaryTextColor));
+            binding.subredditNameContainsRegexTextInputLayoutCustomizePostFilterActivity.setCursorColor(ColorStateList.valueOf(primaryTextColor));
             binding.excludesSubredditsTextInputLayoutCustomizePostFilterActivity.setCursorColor(ColorStateList.valueOf(primaryTextColor));
             binding.containsSubredditsTextInputLayoutCustomizePostFilterActivity.setCursorColor(ColorStateList.valueOf(primaryTextColor));
             binding.excludesUsersTextInputLayoutCustomizePostFilterActivity.setCursorColor(ColorStateList.valueOf(primaryTextColor));
@@ -467,6 +482,8 @@ public class CustomizePostFilterActivity extends BaseActivity {
             setCursorDrawableColor(binding.titleContainsStringsTextInputEditTextCustomizePostFilterActivity, primaryTextColor);
             setCursorDrawableColor(binding.titleExcludesRegexTextInputEditTextCustomizePostFilterActivity, primaryTextColor);
             setCursorDrawableColor(binding.titleContainsRegexTextInputEditTextCustomizePostFilterActivity, primaryTextColor);
+            setCursorDrawableColor(binding.subredditNameExcludesRegexTextInputEditTextCustomizePostFilterActivity, primaryTextColor);
+            setCursorDrawableColor(binding.subredditNameContainsRegexTextInputEditTextCustomizePostFilterActivity, primaryTextColor);
             setCursorDrawableColor(binding.excludesSubredditsTextInputEditTextCustomizePostFilterActivity, primaryTextColor);
             setCursorDrawableColor(binding.containsSubredditsTextInputEditTextCustomizePostFilterActivity, primaryTextColor);
             setCursorDrawableColor(binding.excludesUsersTextInputEditTextCustomizePostFilterActivity, primaryTextColor);
@@ -640,6 +657,10 @@ public class CustomizePostFilterActivity extends BaseActivity {
         Pattern.compile(postFilter.postTitleContainsRegex);
         postFilter.postTitleExcludesStrings = binding.titleExcludesStringsTextInputEditTextCustomizePostFilterActivity.getText().toString();
         postFilter.postTitleContainsStrings = binding.titleContainsStringsTextInputEditTextCustomizePostFilterActivity.getText().toString();
+        postFilter.subredditNameExcludesRegex = binding.subredditNameExcludesRegexTextInputEditTextCustomizePostFilterActivity.getText().toString();
+        Pattern.compile(postFilter.subredditNameExcludesRegex);
+        postFilter.subredditNameContainsRegex = binding.subredditNameContainsRegexTextInputEditTextCustomizePostFilterActivity.getText().toString();
+        Pattern.compile(postFilter.subredditNameContainsRegex);
         postFilter.excludeSubreddits = binding.excludesSubredditsTextInputEditTextCustomizePostFilterActivity.getText().toString();
         postFilter.containSubreddits = binding.containsSubredditsTextInputEditTextCustomizePostFilterActivity.getText().toString();
         postFilter.excludeUsers = binding.excludesUsersTextInputEditTextCustomizePostFilterActivity.getText().toString();
